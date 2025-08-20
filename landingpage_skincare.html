@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elegant Skincare Landing Page</title>
+  <style>
+    /* Base reset and font */
+    body, html {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #faf9f7;
+      color: #2c2c2c;
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Container */
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Header */
+    header {
+      background: #523926;
+      color: #f1f1f1;
+      padding: 24px 20px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 16px;
+    }
+    header button {
+      background: #bc8a5f;
+      border: none;
+      border-radius: 24px;
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 12px 28px;
+      font-size: 1rem;
+      box-shadow: 0 4px 12px rgba(188,138,95,0.5);
+      transition: background-color 0.3s ease;
+    }
+    header button:hover {
+      background: #a27553;
+    }
+
+    /* Hero Section */
+    section.hero {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 80px;
+      flex-wrap: wrap;
+    }
+    .hero-text {
+      flex: 1 1 480px;
+      max-width: 600px;
+      text-align: left;
+    }
+    .hero-text h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin: 0 0 20px 0;
+      line-height: 1.1;
+      color: #372811;
+      user-select: none;
+    }
+    .hero-text h1 .highlight {
+      color: #a27553;
+    }
+    .hero-text p {
+      font-size: 1.15rem;
+      margin-bottom: 32px;
+      color: #55524e;
+      line-height: 1.5;
+      max-width: 480px;
+      user-select: text;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background-color: #523926;
+      color: white;
+      border-radius: 30px;
+      padding: 15px 40px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 20px rgba(92, 47, 47, 0.5);
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    .btn-primary:hover {
+      background-color: #8b5f3e;
+      box-shadow: 0 8px 27px rgba(126, 104, 79, 0.7);
+    }
+    .btn-secondary {
+      background-color: transparent;
+      border: 2px solid #756850;
+      border-radius: 30px;
+      color: #756850;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 15px 40px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      user-select: none;
+    }
+    .btn-secondary:hover {
+      background-color: #756850;
+      color: white;
+      border-color: #604f38;
+    }
+
+    /* Hero Image */
+    .hero-image {
+      flex: 1 1 480px;
+      max-width: 500px;
+      border-radius: 28px;
+      box-shadow: 0 28px 50px rgba(50, 39, 23, 0.16);
+      overflow: hidden;
+      user-select: none;
+    }
+    .hero-image img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Gallery Section */
+    section.gallery {
+      margin-bottom: 80px;
+    }
+    section.gallery h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #372811;
+      margin-bottom: 36px;
+      text-align: center;
+      user-select: none;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+      gap: 30px;
+      justify-items: center;
+    }
+    .gallery-item {
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 16px 44px rgba(62, 69, 71, 0.12);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        width: 100%;
+        max-width: 700px;
+
+        display: flex;
+        align-items: center;     
+        justify-content: center; 
+        min-height: 220px;      
+        }
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 60px rgba(62, 69, 71, 0.22);
+      z-index: 10;
+    }
+    .gallery-item img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;     
+        display: block;
+    }
+
+    /* Footer */
+    footer {
+      background: #372811;
+      color: #dfdfdf;
+      text-align: center;
+      padding: 48px 16px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero {
+        flex-direction: column-reverse;
+        padding: 0 20px;
+      }
+      .hero-text,
+      .hero-image {
+        max-width: 100%;
+        flex: none;
+        width: 100%;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+    }
+    @media (max-width: 480px) {
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        text-align: center;
+      }
+      .btn-secondary {
+        margin-top: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button><a href="https://www.techzoniez.com/products/serum">SHOP NOW</a></button>
+    <button><a href="https://www.techzoniez.com/products/serum">BUY NOW</a></button>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-label="Hero section">
+      <div class="hero-text">
+        <h1>
+          SKIN MELANIN <br />
+          <span class="highlight">CORRECTING</span> <br />
+          FACIAL SERUM
+        </h1>
+        <p>
+          Advanced formula that reduces melanin production, disrupts existing clusters,
+          and promotes healthy skin cell regeneration for visibly brighter, more even-toned skin.
+        </p>
+        <div class="hero-buttons buttons">
+          <button class="btn-primary" type="button" ><a href="https://www.techzoniez.com/products/serum">Shop Now</a></button>
+          <button class="btn-secondary" type="button"><a href="https://www.techzoniez.com/products/serum">Learn More</a></button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/public/banner.webp" alt="Facial serum in glass bottle with dropper" />
+      </div>
+    </section>
+
+    <section class="gallery" aria-label="Product gallery">
+      <h2>Explore Our Collection</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="/public/img_01.jpg" alt="Serum bottle on a stone table" />
+        </div>
+        <div class="gallery-item">
+          <img src="/public/img_02.jpg" alt="Cosmetics on white background" />
+        </div>
+        <div class="gallery-item">
+          <img src="/public/img_03.jpg" alt="Serum in hand with flowers" />
+        </div>
+        <div class="gallery-item">
+          <img src="/public/img_04.jpg" alt="Glass cosmetic bottle with leaves" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Ready for glowing, healthy skin? <br />
+    <a href="https://www.techzoniez.com/products/serum" style="color:#dfdfdf; font-weight:700; text-decoration: underline;">Buy Now &amp; Transform Your Skin</a>
+  </footer>
+</body>
+</html>
